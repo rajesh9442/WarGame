@@ -1,1 +1,8 @@
 # WarGame
+
+Both the server and the client has been inplemented in this project. They will speak the protocol correctly to one another.
+
+Rules:
+The dealer (server) gives the two players, at random, half of the deck, according to our version of war's simplified rules (clients). In contrast to normal war (since this class is about network programming and not video game programming), in the event of a tie neither player receives a "point" and play simply advances to the next round. Each player "turns over" (sends) one of their cards to the server, and the server responds to each player by saying "win," "lose," or "draw." Play ends when all of the cards have been used, and each client knows whether they won or lost depending on the points they were awarded.
+
+Once both clients are connected, the clients send a message containing the “want game” command. If both clients do this correctly, the server responds with a message containing the “game start” command, with a payload containing the list of cards dealt to that client. After each client has received their half of the deck, the clients send messages including the “play card” message, and set the payload to their chosen card. After the server has received a “play card” message from both clients, it will respond with a “play result” message to both clients, telling each one whether they won or lost. This process continues until each player has sent all of their cards and received all of their play results;
